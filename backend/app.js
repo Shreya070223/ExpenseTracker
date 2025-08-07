@@ -21,7 +21,7 @@ db();
 app.use(express.json());
 app.use(cors());
 
-app.get("/api/v1",transecRoute);
+app.use("/",transecRoute);
 
 
 app.listen(PORT,()=>console.log(`server is listning on port ${PORT}`));
