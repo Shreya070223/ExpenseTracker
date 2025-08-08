@@ -1,9 +1,9 @@
-const Income=require("../models/incomeModels");
+const Expense=require("../models/expenseModels");
 
-const addIncome=async(req,res)=>{
+const addExpense=async(req,res)=>{
     const {title,amount,category,description,date}=req.body;
 
-    const income=Income({title,amount,category,description,date});
+    const expense=Expense({title,amount,category,description,date});
 
     try {
         if(!title || !description || !category || !date){
@@ -13,21 +13,21 @@ const addIncome=async(req,res)=>{
             return res.status(400).json({message:"place the correct amount"});
         }
 
-        await income.save();
-        return res.status(200).json({message:"income added"});
+        await expense.save();
+        return res.status(200).json({message:"expense added"});
         
     } catch (error) {
        return  res.status(500).json({message:"Server Error"});
     }
 
-    console.log(income);
+    console.log(expense);
 }
 
-const getIncome=async(req,res)=>{
+const getExpense=async(req,res)=>{
     try {
 
-        const income=await Income.find().sort({createdAt:-1})
-        return res.status(200).json(income);
+        const expense=await Expense.find().sort({createdAt:-1})
+        return res.status(200).json(expense);
         
     } catch (error) {
         return  res.status(500).json({message:"Server Error"});
@@ -35,15 +35,15 @@ const getIncome=async(req,res)=>{
 
 }
 
-const deletetIncome=async(req,res)=>{
+const deleteExpense=async(req,res)=>{
    const {id}=req.params;
-   Income.findByIdAndDelete(id)
+   Expense.findByIdAndDelete(id)
    .then((income)=>{
-    return res.status(200).json({message:"Income deleted"});
+    return res.status(200).json({message:"Expense deleted"});
    })
    .catch((error)=>{
     res.status(500).json({message:"Server Error"})
    })
 } 
 
-module.exports={addIncome,getIncome,deletetIncome};
+module.exports={addExpense,getExpense,deleteExpense};
