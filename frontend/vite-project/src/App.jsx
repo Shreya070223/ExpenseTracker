@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import bg from './img/bg.webp';
-import { MainLayout } from "./styles/layouts.js";
-import {Orb} from "./components/orb/orb.js";
+import { MainLayout } from "./styles/layouts.jsx";
+import { Orb} from "./components/orb/orb.jsx";
 
 function App() {
   return (
     <AppStyled bg={bg} className='app'>
-      <Orb/>
+      <Orb />
       <MainLayout>
         <h1>hello</h1>
       </MainLayout>
