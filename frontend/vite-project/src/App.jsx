@@ -1,14 +1,19 @@
+import React,{useState} from 'react'
 import styled from "styled-components";
 import bg from './img/bg.webp';
 import { MainLayout } from "./styles/layouts.jsx";
 import { Orb} from "./components/orb/orb.jsx";
+import Nevigation from "./components/notification/Nevigation.jsx";
 
 function App() {
+  
+  const [active,setActive]=useState(1);
+
   return (
     <AppStyled bg={bg} className='app'>
       <Orb />
       <MainLayout>
-        <h1>hello</h1>
+        <Nevigation action={active} setActive={setActive}/>
       </MainLayout>
     </AppStyled>
   );

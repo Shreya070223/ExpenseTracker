@@ -13,7 +13,7 @@ export function Orb() {
   transform:translate(0,0);
   }
   50%{
-  transform:translate(400px,500px);
+  transform: translate(${width /1.2}px, ${height / 1.8}px);
   }
   100%{
   transform:translate(0,0);
@@ -28,8 +28,8 @@ const OrbStyle = styled.div`
   margin-top: -37vh;
   margin-left: -37vh;
   background: linear-gradient(180deg, #F56692 0%, #F2994A 100%);
-  filter: blur(200px);
-  animation:${moveOrb} 2s alternate linear infinite;
+  filter: blur(300px);
+  animation:${moveOrb} 15s alternate linear infinite;
 `;
 
   return <OrbStyle />;
